@@ -38,12 +38,12 @@ jobs:
           images: |
             ${{ env.REPO_NAME }}
           # generate Docker tags based on the following events/attributes
+          # we're using a semver-ish match here since openSUSE/xinetd releases aren't strictly semver
           tags: |
             type=schedule
             type=ref,event=branch
             type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
+            type=match,pattern=^v?(\d+\.\d+\.\d+.*),group=1
             type=sha
 
       - name: Set up QEMU

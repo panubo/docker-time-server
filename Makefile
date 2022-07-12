@@ -5,3 +5,6 @@ build:
 
 run:
 	docker run --rm -it panubo/$(IMAGE_NAME)
+
+shell:
+	docker run --rm -it panubo/$(IMAGE_NAME) sh

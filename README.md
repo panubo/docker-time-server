@@ -7,4 +7,7 @@ This is an [RFC 868](https://datatracker.ietf.org/doc/html/rfc868/) [Time Protoc
 ```
 socat -x - UDP4-DATAGRAM:127.0.0.1:37
 socat -x - TCP-CONNECT:127.0.0.1:37
+
+# rdate is part of busybox
+rdate -p 127.0.0.1
 ```
