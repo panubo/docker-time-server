@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+exec s6-applyuidgid -u 1000 -g 1000 xinetd -dontfork

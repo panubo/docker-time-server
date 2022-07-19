@@ -4,7 +4,7 @@ ENV XINETD_VERSION=2.3.15.4
 
 RUN set -x \
   && cd /tmp \
-  && apk --no-cache add tini xz build-base \
+  && apk --no-cache add s6 xz build-base \
   && wget "https://github.com/openSUSE/xinetd/releases/download/${XINETD_VERSION}/xinetd-${XINETD_VERSION}.tar.xz" \
   && tar -xf xinetd-${XINETD_VERSION}.tar.xz \
   && cd xinetd-${XINETD_VERSION} \
@@ -17,6 +17,7 @@ RUN set -x \
   && rm -rf /tmp/* \
   ;
 
+COPY s6/ /etc/s6/
 COPY xinetd.conf /etc/xinetd.conf
 
 RUN set -x \
@@ -27,4 +28,4 @@ RUN set -x \
 EXPOSE 37/tcp
 EXPOSE 37/udp
 
-CMD ["tini", "xinetd", "-dontfork", "-filelog", "/dev/stdout"]
+CMD ["s6-svscan","/etc/s6"]
