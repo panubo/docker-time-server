@@ -11,3 +11,6 @@ run:
 
 shell:
 	docker run --rm -it panubo/$(IMAGE_NAME) sh
+
+_ci_test:
+	true
