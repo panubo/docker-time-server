@@ -1,3 +1,5 @@
+# Does not build beyond alpine:3.20, may require upstream fixes for gcc15 and
+# legacy C library functions eg fcvt, ecvt, and gcvt
 FROM alpine:3.20
 
 ENV XINETD_VERSION=2.3.15.4
