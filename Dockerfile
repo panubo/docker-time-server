@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.23
 
 ENV XINETD_VERSION=2.3.15.4
 
