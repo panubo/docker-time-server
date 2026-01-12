@@ -5,7 +5,7 @@ ENV \
   JMETER_URL=https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
 
 RUN set -x \
-  && apk --no-cache add openjdk8 curl \
+  && apk --no-cache add openjdk8 curl socat \
   && curl -sSf "${JMETER_URL}" -o /tmp/apache-jmeter-${JMETER_VER}.tgz \
   ;
 
